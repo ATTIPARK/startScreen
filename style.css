@@ -1,5 +1,36 @@
-h1 {
-  background-color: pink;
+body {
+  margin: 0;
+  background-color: lightblue;
+  color: rgb(22, 22, 22);
+}
+
+.bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+main {
+  position: fixed;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.time {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 60px;
+  font-weight: 900;
+  border: 20px double white;
+  padding: 12px 24px;
 }
 
 /*# sourceMappingURL=style.css.map */
