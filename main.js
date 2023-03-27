@@ -5,16 +5,23 @@ function getTime() {
 
   const newDate = new Date();
 
-  // const hours = newDate.getHours();
+  const hours = newDate.getHours();
   // const minutes = newDate.getMinutes();
   // const seconds = newDate.getSeconds();
 
-  const hours = String(newDate.getHours()).padStart(2, "0");
+  // const hours = String(newDate.getHours()).padStart(2, "0");
   const minutes = String(newDate.getMinutes()).padStart(2, "0");
   const seconds = String(newDate.getSeconds()).padStart(2, "0");
 
   // time.innerText = hours + ":" + minutes + ":" + seconds;
-  time.innerText = `${hours}:${minutes}:${seconds}`;
+  if (hours <= 12) {
+    time.innerText =
+      "AM " + `${String(hours).padStart(2, "0")}:${minutes}:${seconds}`;
+  } else {
+    time.innerText =
+      "PM " + `${String(hours - 12).padStart(2, "0")}:${minutes}:${seconds}`;
+  }
+  // time.innerText = `${hours}:${minutes}:${seconds}`;
 }
 
 getTime();
@@ -28,10 +35,10 @@ function getQuotes() {
     localStorage.setItem(
       QUOTES,
       JSON.stringify([
-        "열심히 살지맙시다.",
-        "그래도 열심히 살아야지.",
-        "열심히 살면 뭐해~",
-        "열심히 살면 반드시 빛이 온다.",
+        "내 비장의 무기는 아직 손안에 있다. 그것은 희망이다",
+        "내 사전에는 불가능이 없다",
+        "믿음이 부족하기에 도전하기를 두려워하는바 나는 나 자신을 믿는다",
+        "살고자 하면 죽을것이고, 죽고자 하면 살 것이다",
       ])
     );
 
@@ -47,10 +54,15 @@ function getQuotes() {
 getQuotes();
 // setInterval(getQuotes, 1000);
 
-function onClickAdd() {
+function onClickAdd(value) {
   const newQuotes = document.querySelector(".newQuotes");
+  const newQuotesView = document.querySelector(".newQuotesView");
 
-  newQuotes.style.display = "inline-block";
+  if (value) {
+    newQuotes.style.display = "inline-block";
+  } else {
+    newQuotes.style.display = "none";
+  }
 }
 
 function onClickRegist() {
@@ -89,7 +101,7 @@ async function onClickSearch() {
   const question = searchInput.value;
   searchInput.value = "검색 중 입니다... 잠시만 기다려주세요...";
 
-  console.log("챗 지피티 동작중");
+  // console.log("챗 지피티 동작중");
 
   // 프론트엔드에서 백엔드
   const response = await axios.post(

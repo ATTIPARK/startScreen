@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "digital";
+  src: url("./download/DS-DIGIB.TTF") format("truetype");
+}
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -6,6 +10,26 @@
     transform: rotate(360deg);
   }
 }
+main .nft:hover .nftHover, main .search .searchForm, main .search .searchTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .nftView, main .nft .nftHover a, main .search .searchForm .searchButton, main .newQuotes .newQuotesButton, main .quotes:hover .quotesAddBtn {
+  color: black;
+  background-color: white;
+  font-weight: 900;
+  padding: 5px 10px 5px 10px;
+  border-radius: 100px;
+}
+
+main .search .searchForm .searchInput, main .newQuotes .newQuotesInput {
+  width: 250px;
+  height: 25px;
+  font-size: 15px;
+}
+
 body {
   margin: 0;
   color: rgb(22, 22, 22);
@@ -31,13 +55,15 @@ main {
   align-items: center;
 }
 main .time {
+  font-family: "digital";
   color: black;
-  font-size: 60px;
+  font-size: 150px;
   font-weight: 900;
 }
 main .quotes {
   position: relative;
   font-size: 60px;
+  padding-top: 20px;
 }
 main .quotes .quotesAddBtn {
   display: none;
@@ -51,14 +77,37 @@ main .quotes:hover .quotesAddBtn {
 }
 main .newQuotes {
   display: none;
+  margin-top: 20px;
 }
-main .search .searchLogo {
+main .newQuotes .newQuotesView {
+  color: black;
+  background-color: white;
+  font-weight: 900;
+  border-radius: 9999px;
+}
+main .search .searchTitle {
+  padding-top: 20px;
+}
+main .search .searchTitle .searchLogo {
   width: 32px;
   height: 32px;
   animation: spin 5s linear infinite;
 }
+main .search .searchTitle .searchMsg {
+  padding-left: 10px;
+}
+main .search .searchForm {
+  padding-top: 20px;
+}
+main .search .searchForm .searchButton {
+  margin-left: 10px;
+}
 main .searchResult {
+  margin: 30px;
+  padding: 10px;
   display: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
 }
 main .nft {
   position: fixed;
@@ -79,9 +128,6 @@ main .nft .nftHover {
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
 }
-main .nft .nftHover a {
-  color: white;
-}
 main .nft .nftHover button {
   position: absolute;
   width: 24px;
@@ -90,11 +136,6 @@ main .nft .nftHover button {
   right: 0;
   margin: -8px;
   border-radius: 9999px;
-}
-main .nft:hover .nftHover {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 main .nftView {
   position: fixed;

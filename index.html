@@ -13,13 +13,14 @@
       <div class="time">Time</div>
       <div class="quotes">
         <div class="quotesMsg">Quotes</div>
-        <button class="quotesAddBtn" onclick="onClickAdd()">
+        <button class="quotesAddBtn" onclick="onClickAdd(true)">
           새 명언 추가하기
         </button>
       </div>
       <div class="newQuotes">
         <input class="newQuotesInput" type="text" />
         <button class="newQuotesButton" onclick="onClickRegist()">등 록</button>
+        <button class="newQuotesView" onclick="onClickAdd(false)">X</button>
       </div>
       <div class="search">
         <div class="searchTitle">
@@ -60,7 +61,7 @@
     </main>
     <video
       class="bgVideo"
-      src="images/background.mp4"
+      src="download/background.mp4"
       autoplay
       muted
       loop

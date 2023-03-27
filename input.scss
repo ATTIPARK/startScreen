@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "digital";
+  src: url("./download/DS-DIGIB.TTF") format("truetype");
+}
+
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -5,6 +10,26 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+%putCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%btnStyle {
+  color: black;
+  background-color: white;
+  font-weight: 900;
+  padding: 5px 10px 5px 10px;
+  border-radius: 100px;
+}
+
+%inputStyle {
+  width: 250px;
+  height: 25px;
+  font-size: 15px;
 }
 
 body {
@@ -33,14 +58,16 @@ main {
   align-items: center;
 
   .time {
+    font-family: "digital";
     color: black;
-    font-size: 60px;
+    font-size: 150px;
     font-weight: 900;
   }
 
   .quotes {
     position: relative;
     font-size: 60px;
+    padding-top: 20px;
 
     .quotesAddBtn {
       display: none;
@@ -52,6 +79,7 @@ main {
 
     &:hover {
       .quotesAddBtn {
+        @extend %btnStyle;
         display: inline-block;
       }
     }
@@ -59,19 +87,58 @@ main {
 
   .newQuotes {
     display: none;
+    margin-top: 20px;
+
+    .newQuotesInput {
+      @extend %inputStyle;
+    }
+    .newQuotesButton {
+      @extend %btnStyle;
+    }
+    .newQuotesView {
+      color: black;
+      background-color: white;
+      font-weight: 900;
+      border-radius: 9999px;
+    }
   }
 
   .search {
-    .searchLogo {
-      width: 32px;
-      height: 32px;
+    .searchTitle {
+      @extend %putCenter;
+      padding-top: 20px;
 
-      animation: spin 5s linear infinite;
+      .searchLogo {
+        width: 32px;
+        height: 32px;
+
+        animation: spin 5s linear infinite;
+      }
+      .searchMsg {
+        padding-left: 10px;
+      }
+    }
+    .searchForm {
+      @extend %putCenter;
+      padding-top: 20px;
+
+      .searchInput {
+        @extend %inputStyle;
+      }
+
+      .searchButton {
+        @extend %btnStyle;
+        margin-left: 10px;
+      }
     }
   }
 
   .searchResult {
+    margin: 30px;
+    padding: 10px;
     display: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
   }
 
   .nft {
@@ -95,7 +162,7 @@ main {
       background-color: rgba(0, 0, 0, 0.5);
 
       a {
-        color: white;
+        @extend %btnStyle;
       }
       button {
         position: absolute;
@@ -110,9 +177,7 @@ main {
 
     &:hover {
       .nftHover {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @extend %putCenter;
       }
     }
   }
@@ -123,5 +188,6 @@ main {
     right: 0;
     margin: 24px;
     display: none;
+    @extend %btnStyle;
   }
 }
